@@ -61,7 +61,8 @@ while (pokracovat =="ano"):
             moznost == 2
             hledany_telefon = int(input("Zadejte telefonní čílo, podle kterého chcete hledat: \n"))
             for pojistenec in pojistenci:
-                print(pojistenec)
+                if hledany_telefon == pojistenec.telefon:
+                    print(pojistenec)
     else:
         (akce == 4)
         exit()
