@@ -37,8 +37,20 @@ while (pokracovat =="ano"):
     if(akce == 1):
         jmeno = input("Zadej jméno pojištěného \n")
         prijmeni = input("Zadej příjmení pojištěného \n")
-        vek = int(input("Zadej věk pojištěného \n"))
-        telefon = int(input("Zadej telefonní číslo pojištěného \n"))
+        spatne = True
+        while spatne:
+            try:
+                vek = int(input("Zadej věk pojištěného \n"))
+                spatne = False
+            except ValueError:
+                print("Chyba, věk musí být číslo: \n")
+        spatne = True
+        while spatne:
+            try:
+                telefon = int(input("Zadej telefonní číslo pojištěného \n"))
+                spatne = False
+            except ValueError:
+                print("Chyba, musí to být číslo: \n")
         pojistenci.append(Pojistenec(jmeno,prijmeni,vek,telefon))
         print("Pokračuj klávesou enter \n")
 
@@ -58,7 +70,6 @@ while (pokracovat =="ano"):
                 if hledane_jmeno == pojistenec.jmeno and hledane_prijmeni == pojistenec.prijmeni:
                     print(pojistenec)
         else:
-            moznost == 2
             hledany_telefon = int(input("Zadejte telefonní čílo, podle kterého chcete hledat: \n"))
             for pojistenec in pojistenci:
                 if hledany_telefon == pojistenec.telefon:
@@ -66,8 +77,6 @@ while (pokracovat =="ano"):
     else:
         (akce == 4)
         exit()
-
-
 
 p1 = Pojistenec(jmeno, prijmeni,vek, telefon)
 print(vypis_vsechny)
